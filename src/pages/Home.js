@@ -11,7 +11,9 @@ export default class Home extends React.Component {
         </div>
         <div className="list-books-content">
           <div>
-            <Shelf />
+            <Shelf title="Currently Reading" />
+            <Shelf title="Want to Read" />
+            <Shelf title="Read" />
           </div>
         </div>
         <FAB />
