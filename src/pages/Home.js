@@ -20,9 +20,9 @@ export default class Home extends React.Component {
         </div>
         <div className="list-books-content">
           <div>
-            <Shelf title="Currently Reading" />
-            <Shelf title="Want to Read" />
-            <Shelf title="Read" />
+            <Shelf title="Currently Reading" books={ this.props.currentlyReading }/>
+            <Shelf title="Want to Read" books={ this.props.wantToRead }/>
+            <Shelf title="Read" books={ this.props.read }/>
           </div>
         </div>
         <FAB />
