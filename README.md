@@ -1,6 +1,6 @@
 # MyReads Project Overview
 
-This application was created with ReactJS
+This application was created with ReactJS for the Grow with Google / Udacity Front-End Web Developer program. The app allows users to search for books and move them between three different shelves.
 
 ## Instructions
 
