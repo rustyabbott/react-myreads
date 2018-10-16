@@ -1,17 +1,16 @@
 import React from 'react'
 import Shelf from '../Shelf'
 import FAB from '../FAB'
-import { getAll } from '../../BooksAPI.js'
+import * as BooksAPI from '../../BooksAPI'
 
 export default class Home extends React.Component {
-  async componentDidMount() {
-    try {
-      const books = await getAll();
+  componentDidMount() {
+    BooksAPI.getAll()
+    .then(books => {
       this.props.addBooks(books);
-    } catch(error) {
-      console.log(error);
-    }
+    })
   }
+
   render() {
     return (
       <div className="list-books">
