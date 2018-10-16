@@ -1,5 +1,5 @@
 import React from 'react'
-export const MyContext = React.createContext();
+export const PageContext = React.createContext();
 
 export default class index extends React.Component {
   constructor() {
@@ -33,9 +33,9 @@ export default class index extends React.Component {
 
   render() {
     return (
-      <MyContext.Provider value={{ ...this.state }}>
+      <PageContext.Provider value={{ ...this.state }}>
         { this.props.children }
-      </MyContext.Provider>
+      </PageContext.Provider>
     )
   }
 }

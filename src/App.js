@@ -1,9 +1,9 @@
 import React from 'react'
 import './App.css'
 import { Switch, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import Search from './pages/Search'
-import Provider, { MyContext } from './Provider/index'
+import Home from './components/pages/Home'
+import Search from './components/pages/Search'
+import Provider, { PageContext } from './Provider/index'
 
 // Thank you to Forrest Walker for an excellent walk-through: https://www.youtube.com/watch?v=bpKI3R0nf7E
 class BooksApp extends React.Component {
@@ -15,17 +15,17 @@ class BooksApp extends React.Component {
             <Route
               exact path={ '/' }
               render={() => (
-                <MyContext.Consumer>
+                <PageContext.Consumer>
                   { context => <Home { ...context } /> }
-                </MyContext.Consumer>
+                </PageContext.Consumer>
               )}
             />
             <Route
               exact path={ '/search' }
               render={() => (
-                <MyContext.Consumer>
+                <PageContext.Consumer>
                   { context => <Search { ...context } /> }
-                </MyContext.Consumer>
+                </PageContext.Consumer>
               )}
             />
           </Switch>
