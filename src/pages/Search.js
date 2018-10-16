@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { search } from '../BooksAPI'
 import Book from '../components/Book'
-import { getAll } from '../BooksAPI.js'
+import { getAll } from '../BooksAPI'
 
 export default class Search extends React.Component {
   constructor(props) {
