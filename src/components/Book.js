@@ -1,12 +1,12 @@
 import React from 'react'
-import { update } from '../BooksAPI'
+import * as BooksAPI from '../BooksAPI'
 
 export default class Book extends React.Component {
   handleChange = async e => {
     try {
       const shelf = e.target.value;
       const book = this.props;
-      const result = await update(book, shelf);
+      const result = await BooksAPI.update(book, shelf);
       this.props.moveBook(book, shelf, result);
     } catch (error) {
       console.log(error);
@@ -25,7 +25,7 @@ export default class Book extends React.Component {
             }}>
             </div>
             <div className="book-shelf-changer">
-              <select onChange={ this.handleChange } value={ this.props.shelf }>
+              <select onChange={ this.handleChange } value={ this.props.shelf || 'none' }>
                 <option value="move" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>

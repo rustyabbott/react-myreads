@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { search } from '../../BooksAPI'
+import * as BooksAPI from '../../BooksAPI'
 import Book from '../Book'
-import { getAll } from '../../BooksAPI'
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -13,13 +12,11 @@ export default class Search extends React.Component {
     }
   }
 
-  async componentDidMount() {
-    try {
-      const books = await getAll();
+  componentDidMount() {
+    BooksAPI.getAll()
+    .then(books => {
       this.props.addBooks(books);
-    } catch(error) {
-      console.log(error);
-    }
+    })
   }
 
   handleChange = async e => {
@@ -27,7 +24,7 @@ export default class Search extends React.Component {
       const query = e.target.value;
       this.setState({ query });
       if (query) {
-        const results = await search(query);
+        const results = await BooksAPI.search(query);
         if (results.error) {
           this.setState({ books: [] });
         } else {
