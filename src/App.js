@@ -19,8 +19,7 @@ class BooksApp extends React.Component {
                 </PageContext.Consumer>
               )}
             />
-            <Route
-              exact path={ '/search' } render={() => (
+            <Route exact path={ '/search' } render={() => (
                 <PageContext.Consumer>
                   { value => <Search { ...value } /> }
                 </PageContext.Consumer>
