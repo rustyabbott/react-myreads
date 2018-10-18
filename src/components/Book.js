@@ -1,43 +1,43 @@
 import React from 'react'
 import * as BooksAPI from '../BooksAPI'
 
-export default class Book extends React.Component {
-  handleChange = async e => {
+const Book = (props) => {
+  const handleChange = async e => {
     try {
       const shelf = e.target.value;
-      const book = this.props;
+      const book = props;
       const result = await BooksAPI.update(book, shelf);
-      this.props.moveBook(book, shelf, result);
+      props.moveBook(book, shelf, result);
     } catch (error) {
       console.log(error);
     }
   }
 
-  render() {
-    return (
-      <li>
-        <div className="book">
-          <div className="book-top">
-            <div className="book-cover" style={{
-              width: 128,
-              height: 193,
-              backgroundImage: `url(${ this.props.imageLinks ? this.props.imageLinks.thumbnail : '' })`
-            }}>
-            </div>
-            <div className="book-shelf-changer">
-              <select onChange={ this.handleChange } value={ this.props.shelf || 'none' }>
-                <option value="move" disabled>Move to...</option>
-                <option value="currentlyReading">Currently Reading</option>
-                <option value="wantToRead">Want to Read</option>
-                <option value="read">Read</option>
-                <option value="none">None</option>
-              </select>
-            </div>
+  return (
+    <li>
+      <div className="book">
+        <div className="book-top">
+          <div className="book-cover" style={{
+            width: 128,
+            height: 193,
+            backgroundImage: `url(${ props.imageLinks ? props.imageLinks.thumbnail : '' })`
+          }}>
           </div>
-          <div className="book-title">{ this.props.title }</div>
-          <div className="book-authors">{ this.props.authors ? this.props.authors[0] : 'Unknown' }</div>
+          <div className="book-shelf-changer">
+            <select onChange={ handleChange } value={ props.shelf || 'none' }>
+              <option value="move" disabled>Move to...</option>
+              <option value="currentlyReading">Currently Reading</option>
+              <option value="wantToRead">Want to Read</option>
+              <option value="read">Read</option>
+              <option value="none">None</option>
+            </select>
+          </div>
         </div>
-      </li>
-    )
-  }
+        <div className="book-title">{ props.title }</div>
+        <div className="book-authors">{ props.authors ? props.authors[0] : 'Unknown' }</div>
+      </div>
+    </li>
+  )
 }
+
+export default Book
