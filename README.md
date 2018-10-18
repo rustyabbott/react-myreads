@@ -7,8 +7,6 @@ This application was created with ReactJS for the Grow with Google / Udacity Fro
 To load the application locally:
 
 * Install project dependencies by typing `npm install` from your terminal.
-* Install the react package: `npm install -g create-react-app`
-* Clone this repository: `git clone https://github.com/rustyabbott/react-myreads.git`
 * From the project root type `npm start`
 
 ![](img/myreads-home-screenshot.png)
