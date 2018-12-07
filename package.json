@@ -6,12 +6,16 @@
     "react-dom": "^16.3.2"
   },
   "devDependencies": {
+    "gh-pages": "^2.0.1",
     "react-scripts": "1.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "homepage": "https://rustyabbott.github.io/react-myreads/"
 }
